@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Homebudget;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
@@ -30,7 +31,26 @@ class HomebudgetController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'date' => 'required|date',
+            'category' => 'required|numeric',
+            'price' => 'required|numeric',
+        ]);
+
+        $result = Homebudget::create([
+            'date' => $request->date,
+            'category_id' => $request->category,
+            'price' => $request->price,
+            
+        ]);
+
+        if(!empty($result)){
+            session()->flash('flash_message','支出の登録を行いました。');
+        } else {
+            session()->flash('flash_error_message','支出の登録ができませんでした。');
+        }
+
+        return redirect('/');
     }
 
     /**

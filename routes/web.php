@@ -19,3 +19,4 @@ Route::get('/', function () {
 });
 
 Route::get('/',[HomebudgetController::class,'index'])->name('index');
+Route::post('/post',[HomebudgetController::class,'store'])->name('store');
