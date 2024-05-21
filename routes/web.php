@@ -20,3 +20,5 @@ Route::get('/', function () {
 
 Route::get('/',[HomebudgetController::class,'index'])->name('index');
 Route::post('/post',[HomebudgetController::class,'store'])->name('store');
+Route::get('/edit/{id}',[HomebudgetController::class,'edit'])->name('homebudget.edit');
+Route::put('/update',[HomebudgetController::class,'update'])->name('homebudget.update');
