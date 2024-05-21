@@ -13,7 +13,7 @@
     </header>
     <section class="container">
         <div class="balance">
-            <h3>支出一覧</h3>
+            <h3>収支一覧</h3>
             @if (session('flash_message'))
                 <div class="flash_message">
                     {{ session('flash_message') }}
@@ -37,12 +37,20 @@
                         <tr>
                             <td>{{ $homebudget->date }}</td>
                             <td>{{ $homebudget->category->name }}</td>
-                            <td>{{ $homebudget->price }}</td>
+                            <td>
+                                @if ($homebudget->category->name == '収入')
+                                    <span class="income">
+                                @else
+                                    <span class="payment">
+                                @endif
+                                {{ $homebudget->price }}</span>
+                            </td>
                             <td class="button-td">
                                 <form action="{{ route('homebudget.edit', ['id'=>$homebudget->id]) }}" method="">
                                     <input type="submit" value="更新" class="edit-button">
                                 </form>
-                                <form action="" method="">
+                                <form action="{{ route('homebudget.destroy', ['id'=>$homebudget->id]) }}" method="POST">
+                                    @csrf
                                     <input type="submit" value="削除" class="delete-button">
                                 </form>
                             </td><!-- /button-td -->
@@ -50,13 +58,19 @@
                     @endforeach
                 </tbody>
             </table>
-            <div class="pagination">
-                {{ $homebudgets->links() }}
-            </div><!-- /pagination -->
+            <div class="flex">
+                <div class="pagination">
+                    {{ $homebudgets->links() }}
+                </div><!-- /pagination -->
+                <div class="flex total">
+                    <p>収入合計：<span class="income">{{ $income }}円</p></span>
+                    <p>収支合計：<span class="payment">{{ $payment }}円</p></span>
+                </div><!-- /flex total-->
+            </div><!-- /flex -->
         </div><!-- /balance -->
 
         <div class="add-balance">
-            <h3>支出の追加</h3>
+            <h3>収支の追加</h3>
 
             <form action="{{ route('store') }}" method="POST">
                 @csrf
