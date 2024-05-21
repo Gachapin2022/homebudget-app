@@ -82,6 +82,7 @@ background: #f2f2f2;
 }
 
 .add-balance button {
+    font-size: 13px;
     padding: 8px 16px;
     background-color: mediumaquamarine;
     color: #fff;
@@ -89,6 +90,17 @@ background: #f2f2f2;
     border-radius: 4px;
     cursor: pointer;
     margin-top: 20px;
+}
+
+.add-balance a {
+    text-decoration: none;
+    text-align: center;
+    padding: 8px 16px;
+    background-color: mediumaquamarine;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 .error {
@@ -252,4 +264,45 @@ background: #f2f2f2;
 
 .payment {
     color: tomato;
+}
+.categoryAdd-balance {
+    width: 100%;
+    max-width: 20%;
+    margin-left: 50px;
+}
+
+.categoryAdd-balance form {
+    display: flex;
+    flex-direction: column;
+}
+
+.categoryAdd-balance .form-group {
+    margin-bottom: 10px;
+}
+
+.categoryAdd-balance label {
+    font-weight: bold;
+    font-size: 14px;
+    margin-top: 0;
+}
+
+.categoryAdd-balance input {
+    position: relative;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 8px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.categoryAdd-balance button {
+    font-size: 13px;
+    padding: 8px 16px;
+    background-color: mediumaquamarine;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
 }

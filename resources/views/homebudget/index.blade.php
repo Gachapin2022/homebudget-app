@@ -91,6 +91,7 @@
                 @if ($errors->has('price'))<span class="error">{{ $errors->first('price') }}</span>@endif
 
                 <button type="submit">追加</button>
+                <a href="{{ route('category.showIndex') }}">カテゴリ追加</a>
             </form>
         </div><!-- /add-balance -->
     </section><!-- /container -->

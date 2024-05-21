@@ -10,4 +10,8 @@ class Category extends Model
     use HasFactory;
 
     public $timestamps = false;
+
+    protected $teble = 'categories';
+
+    protected $fillable = [ 'name' ];
 }

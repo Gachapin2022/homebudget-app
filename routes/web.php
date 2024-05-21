@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomebudgetController;
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,3 +24,6 @@ Route::post('/post',[HomebudgetController::class,'store'])->name('store');
 Route::get('/edit/{id}',[HomebudgetController::class,'edit'])->name('homebudget.edit');
 Route::put('/update',[HomebudgetController::class,'update'])->name('homebudget.update');
 Route::post('/destroy/{id}',[HomebudgetController::class,'destroy'])->name('homebudget.destroy');
+
+Route::get('/category',[CategoryController::class, 'showIndex'])->name('category.showIndex');
+Route::get('/create',[CategoryController::class, 'registrar'])->name('category.registrar');
