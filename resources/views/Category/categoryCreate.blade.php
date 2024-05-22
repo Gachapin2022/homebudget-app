@@ -35,7 +35,7 @@
                                 <td>{{ $category->name }}</td>
                                 <td class="button-td">
                                     <form action="#" method="">
-                                        <input type="submit" value="更新" class="edit-button">
+                                        <input type="submit" value="変更" class="edit-button">
                                     </form>
                                     <form action="#" method="">
                                         @csrf
