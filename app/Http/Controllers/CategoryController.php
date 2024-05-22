@@ -55,4 +55,12 @@ class CategoryController extends Controller
 
         return redirect('/category');
     }
+
+    public function categoryDestroy(string $id)
+    {
+        $category = Category::find($id);
+        $category->delete();
+        session()->flash('flash_message', 'カテゴリを削除しました。');
+        return redirect('/category');
+    }
 }

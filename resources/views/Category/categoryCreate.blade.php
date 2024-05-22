@@ -37,7 +37,7 @@
                                     <form action="{{ route('category.edit',['id'=>$category->id]) }}" method="">
                                         <input type="submit" value="変更" class="edit-button">
                                     </form>
-                                    <form action="#" method="">
+                                    <form action="{{ route('category.destroy',['id'=>$category->id]) }}" method="POST">
                                         @csrf
                                         <input type="submit" value="削除" class="delete-button">
                                     </form>

@@ -29,3 +29,4 @@ Route::get('/category',[CategoryController::class, 'showIndex'])->name('category
 Route::post('/create',[CategoryController::class, 'registrar'])->name('category.registrar');
 Route::get('/categoryedit/{id}',[CategoryController::class, 'categoryEdit'])->name('category.edit');
 Route::put('/categoryeUpdate',[CategoryController::class, 'categoryUpdate'])->name('category.update');
+Route::post('/categoryDestroy/{id}',[CategoryController::class, 'categoryDestroy'])->name('category.destroy');
