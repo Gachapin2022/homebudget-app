@@ -26,4 +26,6 @@ Route::put('/update',[HomebudgetController::class,'update'])->name('homebudget.u
 Route::post('/destroy/{id}',[HomebudgetController::class,'destroy'])->name('homebudget.destroy');
 
 Route::get('/category',[CategoryController::class, 'showIndex'])->name('category.showIndex');
-Route::get('/create',[CategoryController::class, 'registrar'])->name('category.registrar');
+Route::post('/create',[CategoryController::class, 'registrar'])->name('category.registrar');
+Route::get('/categoryedit/{id}',[CategoryController::class, 'categoryEdit'])->name('category.edit');
+Route::put('/categoryeUpdate',[CategoryController::class, 'categoryUpdate'])->name('category.update');

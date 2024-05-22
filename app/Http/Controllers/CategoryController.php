@@ -30,4 +30,29 @@ class CategoryController extends Controller
 
         return redirect('/category');
     }
+
+    public function categoryEdit(string $id)
+    {
+        $category = Category::find($id);
+        return view('Category.categoryEdit',compact('category'));
+    }
+
+    public function categoryUpdate(Request $request)
+    {
+        $validated = $request->validate([
+            'name' => 'required'
+        ]);
+
+        $hasData = Category::where('id', '=', $request->id);
+        if ($hasData->exists()) {
+            $hasData->update([
+                'name' => $request->name
+            ]);
+            session()->flash('flash_message', 'カテゴリを変更しました。');
+        } else {
+            session()->flash('flash_error_message', 'カテゴリを変更できませんでした。');
+        }
+
+        return redirect('/category');
+    }
 }

@@ -34,7 +34,7 @@
                             <tr>
                                 <td>{{ $category->name }}</td>
                                 <td class="button-td">
-                                    <form action="#" method="">
+                                    <form action="{{ route('category.edit',['id'=>$category->id]) }}" method="">
                                         <input type="submit" value="変更" class="edit-button">
                                     </form>
                                     <form action="#" method="">
@@ -49,7 +49,8 @@
             </div><!-- /balance -->
 
             <div class="categoryAdd-balance">
-                <form action="{{ route('category.registrar') }}" method="">
+                <form action="{{ route('category.registrar') }}" method="POST">
+                    @csrf
                     <label for="name">カテゴリ</label>
                     <input type="text" id="name" name="name">
                     @if($errors->has('name')) <span class="error">{{$errors->first('name')}}</span> @endif
